@@ -1,0 +1,25 @@
+{
+  "name": "@acpmfrance/nagios",
+  "version": "4.4.6",
+  "description": "Docker image with Nagios",
+  "author": "Nicolas Chiappero <github@ihatespamrz.com>",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ACPMFrance/Docker-Nagios.git"
+  },
+  "keywords": [
+    "docker",
+    "nagios"
+  ],
+  "devDependencies": {
+    "standard-changelog": "^2.0.24"
+  },
+  "scripts": {
+    "changelog": "standard-changelog",
+    "preversion": "[ 'master' = $(git rev-parse --abbrev-ref HEAD) ]",
+    "version": "npm run changelog && git add -A .",
+    "postversion": "git push --follow-tags"
+  }
+}

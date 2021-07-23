@@ -11,6 +11,8 @@ sed -i "s/myhostname =.*/myhostname = $(hostname)/" /etc/postfix/main.cf
 sed -i "s/mydestination =.*/mydestination = ${NAGIOS_FQDN}, \$myhostname, localhost.localdomain, localhost/" /etc/postfix/main.cf
 
 sed -i "/^myorigin =.*/d" /etc/postfix/main.cf
+echo "myorigin = /etc/mailname" >> /etc/postfix/main.cf
+
 echo "${NAGIOS_FQDN}" > /etc/mailname
 
 #postfix runs in a chroot and needs resolv.conf to resolve hostnames
